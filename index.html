@@ -1,65 +1,26 @@
 <!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#100d20">
-<meta name="description" content="SOL Phantom Miner is an Android-focused rewards app project exploring verified tasks and transparent Solana payouts.">
-<title>SOL Phantom Miner — Earn through verified tasks</title>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#100d20"><meta name="description" content="SOL Phantom Miner task rewards prototype. No mining or live payouts enabled.">
+<title>SOL Phantom Miner</title><link rel="manifest" href="./manifest.webmanifest"><link rel="icon" href="./icon.svg">
 <style>
-:root{color-scheme:dark;--bg:#0b0914;--panel:#171326;--panel2:#211a35;--purple:#a78bfa;--mint:#6ee7b7;--text:#f7f4ff;--muted:#b6adc9;--line:#39304d;--gold:#fcd34d}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 50% -15%,#34205b 0,#0b0914 48%);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
-a{color:inherit}.wrap{width:min(1080px,calc(100% - 36px));margin:auto}.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 0;border-bottom:1px solid #ffffff12}.brand{display:flex;align-items:center;gap:11px;text-decoration:none}.logo{width:44px;height:44px;border-radius:15px;background:linear-gradient(135deg,#a78bfa,#5eead4);display:grid;place-items:center;color:#171126;font-weight:900;font-size:15px;box-shadow:0 8px 28px #8b5cf633}.brand strong{display:block;line-height:1.2}.brand small{color:var(--muted)}.nav a.link{font-size:14px;color:var(--muted);text-decoration:none}.hero{padding:72px 0 55px;max-width:790px}.eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px solid #655184;background:#211832;padding:6px 11px;border-radius:999px;color:#ddd0ff;font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase}.dot{width:7px;height:7px;background:var(--mint);border-radius:50%}h1{font-size:clamp(40px,8vw,72px);line-height:1.02;letter-spacing:-.055em;margin:20px 0}h1 em{font-style:normal;color:var(--purple)}.lead{font-size:clamp(17px,2.5vw,20px);color:var(--muted);max-width:650px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}.btn{display:inline-block;text-decoration:none;padding:12px 17px;border-radius:12px;font-weight:750;background:var(--purple);color:#160f25}.btn.alt{background:#211a35;border:1px solid #4b3d64;color:var(--text)}.notice{border:1px solid #66512a;background:#302613;color:#fde68a;padding:13px 15px;border-radius:14px;font-size:13px;margin:20px 0 0;max-width:760px}.section{padding:38px 0}.section h2{font-size:clamp(25px,4vw,36px);line-height:1.15;letter-spacing:-.035em;margin:0 0 12px}.section-intro{color:var(--muted);max-width:680px;margin:0 0 24px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.card{background:linear-gradient(145deg,#1b1530,#151121);border:1px solid var(--line);border-radius:18px;padding:21px}.icon{width:42px;height:42px;border-radius:13px;background:#30234a;display:grid;place-items:center;font-size:21px;margin-bottom:14px}.card h3{margin:0 0 7px;font-size:18px}.card p{color:var(--muted);margin:0;font-size:14px}.steps{counter-reset:step}.step{display:flex;gap:14px;padding:16px 0;border-top:1px solid var(--line)}.step:first-child{border-top:0}.num{width:32px;height:32px;flex:0 0 32px;border-radius:10px;background:#30234a;display:grid;place-items:center;color:#ddd0ff;font-weight:800}.step p{margin:3px 0 0;color:var(--muted);font-size:14px}.step strong{display:block}.status{display:inline-block;border:1px solid #655184;background:#211832;border-radius:8px;padding:4px 8px;font-size:12px;color:#ddd0ff}.footer{border-top:1px solid #ffffff14;margin-top:45px;padding:24px 0 35px;color:var(--muted);font-size:13px;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}.footer a{color:#ddd0ff}@media(max-width:720px){.grid{grid-template-columns:1fr}.hero{padding:54px 0 38px}.nav .link{display:none}.card{padding:18px}}
-</style>
-</head>
-<body>
-<header class="wrap nav">
-  <a class="brand" href="#" aria-label="SOL Phantom Miner home">
-    <span class="logo">SOL</span><span><strong>SOL Phantom Miner</strong><small>Rewards app project</small></span>
-  </a>
-  <a class="link" href="#how-it-works">How it works</a>
-</header>
-<main class="wrap">
-  <section class="hero">
-    <span class="eyebrow"><span class="dot"></span> Early development</span>
-    <h1>Rewards should be <em>transparent.</em></h1>
-    <p class="lead">SOL Phantom Miner is an Android-focused project exploring how people can earn rewards through eligible tasks, with clear terms and a path toward Solana payouts.</p>
-    <div class="actions">
-      <a class="btn" href="#how-it-works">Explore the project</a>
-      <a class="btn alt" href="#status">Development status</a>
-    </div>
-    <div class="notice"><strong>Important:</strong> SOL Phantom Miner does not mine Solana. The project is in development; real tasks, reward funding, and SOL withdrawals are not yet available. No earnings are promised.</div>
-  </section>
-
-  <section class="section" id="how-it-works">
-    <h2>Designed around verified rewards</h2>
-    <p class="section-intro">Our goal is to build a straightforward rewards experience. Features will only be described as live once they are implemented and tested.</p>
-    <div class="grid">
-      <article class="card"><div class="icon">📋</div><h3>Eligible tasks</h3><p>Explore third-party tasks or offers only when a provider accepts the app and its audience. Provider availability may vary by country.</p></article>
-      <article class="card"><div class="icon">🛡️</div><h3>Verified credits</h3><p>Plan for server-verified completions, transparent reward records, and fraud checks rather than trusting balances stored only on a phone.</p></article>
-      <article class="card"><div class="icon">◎</div><h3>Solana payouts</h3><p>Future payouts would require actual funded rewards, a supported payout process, and transaction fees. This feature is not active yet.</p></article>
-    </div>
-  </section>
-
-  <section class="section" id="status">
-    <h2>Project status</h2>
-    <p class="section-intro">This is an early project page, not a live earning service.</p>
-    <div class="card steps">
-      <div class="step"><span class="num">1</span><div><strong>Android prototype</strong><p>A local HTML prototype has been created for testing the interface.</p></div></div>
-      <div class="step"><span class="num">2</span><div><strong>Rewards provider review</strong><p>We need a suitable provider, publisher approval, and confirmed terms before integrating offers.</p></div></div>
-      <div class="step"><span class="num">3</span><div><strong>Backend and payouts</strong><p>Server-side verification, a secure reward ledger, user support, and funded payout handling are still to be built.</p></div></div>
-    </div>
-    <p style="margin-top:16px"><span class="status">In development</span></p>
-  </section>
-
-  <section class="section">
-    <h2>Safety first</h2>
-    <p class="section-intro">Never share a wallet recovery phrase or private key with this project. Do not pay a deposit to unlock promised earnings. Any future rewards and withdrawal terms must be shown clearly before a user participates.</p>
-  </section>
-</main>
-<footer class="wrap footer">
-  <span>© 2026 SOL Phantom Miner · Early development project</span>
-  <span>No affiliation with the Solana Foundation is implied.</span>
-</footer>
-</body>
-</html>
+:root{color-scheme:dark;--bg:#100d20;--panel:#1b1730;--text:#f7f5ff;--muted:#b8b2d0;--purple:#9c7bff;--green:#70f0bb;--line:#383052;--yellow:#ffe4a7}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#29204b,#100d20 58%);color:var(--text);font:16px/1.5 system-ui,sans-serif}.wrap{max-width:850px;margin:auto;padding:22px 15px 40px}.top{display:flex;align-items:center;gap:12px;margin-bottom:22px}.logo{width:48px;height:48px;border-radius:15px;background:linear-gradient(135deg,var(--purple),var(--green));display:grid;place-items:center;color:#100d20;font-size:25px;font-weight:900}.brand{font-weight:850}.sub,.small,.label{color:var(--muted);font-size:12px}.pill{display:inline-block;border-radius:99px;padding:5px 9px;background:#30274b;color:#d8ccff;font-size:11px;font-weight:800}.hero,.card,.stat{border:1px solid var(--line);border-radius:20px;background:#1b1730ed;padding:19px}.hero{background:linear-gradient(140deg,#282043,#171329)}.eyebrow{color:var(--green);font-size:12px;font-weight:800;letter-spacing:1.4px}.hero h1{font-size:clamp(30px,7vw,44px);line-height:1.08;margin:10px 0}.hero p,.task p{color:var(--muted)}.notice{margin-top:17px;padding:12px;border-radius:13px;background:#3b2e17;border:1px solid #735a2c;color:var(--yellow);font-size:13px}.stats,.two{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}.value{font-size:25px;font-weight:850}.section-title{font-size:20px;margin:24px 0 12px}.tasks{display:grid;gap:12px}.task{display:flex;align-items:flex-start;gap:12px}.task-icon{width:42px;height:42px;flex-shrink:0;border-radius:13px;background:#282043;display:grid;place-items:center;font-size:21px}.task-main{flex:1}.task h3{font-size:16px;margin:0 0 4px}.task p{font-size:13px;margin:0}.task-status{font-size:12px;color:var(--yellow);margin-top:8px}button{border:0;border-radius:11px;padding:10px 12px;font-weight:800;color:#100d20;background:var(--green);cursor:pointer;margin-top:10px}button:disabled{background:#464056;color:#c7c0d8}.formrow{display:flex;gap:8px;margin-top:12px}.formrow input{min-width:0;flex:1;background:#100d20;color:white;border:1px solid var(--line);border-radius:10px;padding:12px}.formrow button{margin:0}.footer{text-align:center;color:var(--muted);font-size:12px;margin-top:24px}.footer a{color:var(--green)}@media(max-width:560px){.stats,.two{grid-template-columns:1fr}.task{flex-wrap:wrap}.task button{margin-left:54px}}
+</style></head><body><div class="wrap">
+<header class="top"><div class="logo">S</div><div><div class="brand">SOL PHANTOM MINER</div><div class="sub">TASK REWARDS · EARLY PROTOTYPE</div></div><span class="pill" style="margin-left:auto">PREVIEW</span></header>
+<main><section class="hero"><div class="eyebrow">YOUR NEXT STEP STARTS HERE</div><h1>Earn through tasks.<br>Track every step.</h1><p>A transparent prototype for a future task-and-rewards app. No hidden mining, no fake payouts, and no promise of earnings.</p><div class="notice"><b>Prototype mode:</b> Solana cannot be mined by this app. Tasks below are examples only; no live offerwall, real rewards, account system, or SOL payouts are connected yet.</div></section>
+<section class="stats"><div class="stat"><div class="label">Available SOL</div><div class="value">0.000000</div><div class="small">Real payouts not enabled</div></div><div class="stat"><div class="label">Task submissions</div><div class="value" id="submittedCount">0</div><div class="small">Saved on this device only</div></div></section>
+<div class="two"><section class="card"><h2 class="section-title" style="margin-top:0">Wallet address (optional)</h2><p class="small">For interface testing only. Enter a public Solana address; never enter a seed phrase or private key.</p><form id="walletForm" class="formrow"><input id="wallet" placeholder="Public Solana address" autocomplete="off"><button type="submit">Save</button></form><div id="walletStatus" class="small" style="margin-top:9px">No address saved.</div></section>
+<section class="card"><h2 class="section-title" style="margin-top:0">How rewards will work</h2><p class="small">1. Complete an approved partner task.<br>2. Partner verifies completion.<br>3. Server approves the reward.<br>4. Payout is sent and recorded.</p><span class="pill">Server verification required</span></section></div>
+<h2 class="section-title">Example tasks</h2><div class="tasks">
+<article class="card task"><div class="task-icon">📘</div><div class="task-main"><h3>Read the safety guide</h3><p>Learn to protect your wallet and spot scams. This is a demo task, not a paid offer.</p><div class="task-status" id="status-safety">Not submitted</div></div><button data-task="safety">Mark as reviewed</button></article>
+<article class="card task"><div class="task-icon">🧩</div><div class="task-main"><h3>Explore the app demo</h3><p>Test the dashboard and give feedback. No SOL or money is awarded for this demo action.</p><div class="task-status" id="status-demo">Not submitted</div></div><button data-task="demo">Submit demo feedback</button></article></div>
+<p class="small" style="margin-top:14px">Demo submissions are stored only in this browser. They have no monetary value and are not redeemable.</p></main>
+<footer class="footer">SOL Phantom Miner · Prototype only · <a href="https://solana.com/docs" target="_blank" rel="noreferrer">Solana developer docs</a></footer></div>
+<script>
+(()=>{const key="spm-demo-submissions-v1",wk="spm-public-wallet-v1";let s={};try{s=JSON.parse(localStorage.getItem(key)||"{}")}catch(e){}
+function render(){document.getElementById("submittedCount").textContent=Object.keys(s).length;document.querySelectorAll("[data-task]").forEach(b=>{let id=b.dataset.task;b.disabled=!!s[id];b.textContent=s[id]?"Submitted":id==="safety"?"Mark as reviewed":"Submit demo feedback";document.getElementById("status-"+id).textContent=s[id]?"Demo submission saved on this device · no reward":"Not submitted"})}
+document.querySelectorAll("[data-task]").forEach(b=>b.addEventListener("click",()=>{s[b.dataset.task]=new Date().toISOString();localStorage.setItem(key,JSON.stringify(s));render()}));
+document.getElementById("walletForm").addEventListener("submit",e=>{e.preventDefault();let v=document.getElementById("wallet").value.trim();if(v&&!/^[1-9A-HJ-NP-Za-km-z]{32,44}$/.test(v)){document.getElementById("walletStatus").textContent="That doesn't look like a typical Solana public address. Check it and try again.";return}if(v)localStorage.setItem(wk,v);else localStorage.removeItem(wk);document.getElementById("walletStatus").textContent=v?"Public address saved on this device only.":"No address saved."});
+let saved=localStorage.getItem(wk);if(saved){document.getElementById("wallet").value=saved;document.getElementById("walletStatus").textContent="Public address saved on this device only."}render();if("serviceWorker"in navigator)addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}))})();
+</script></body></html>

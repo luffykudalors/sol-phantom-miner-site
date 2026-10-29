@@ -1,0 +1,18 @@
+{
+  "name": "SOL Phantom Miner",
+  "short_name": "SOL Phantom",
+  "description": "A transparent task rewards prototype",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#100d20",
+  "theme_color": "#100d20",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
