@@ -1,26 +1,190 @@
-<!doctype html>
-<html lang="en"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#100d20"><meta name="description" content="SOL Phantom Miner task rewards prototype. No mining or live payouts enabled.">
-<title>SOL Phantom Miner</title><link rel="manifest" href="./manifest.webmanifest"><link rel="icon" href="./icon.svg">
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#080d1c">
+<title>SOL Phantom Miner</title>
+<link rel="manifest" href="manifest.webmanifest">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <style>
-:root{color-scheme:dark;--bg:#100d20;--panel:#1b1730;--text:#f7f5ff;--muted:#b8b2d0;--purple:#9c7bff;--green:#70f0bb;--line:#383052;--yellow:#ffe4a7}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#29204b,#100d20 58%);color:var(--text);font:16px/1.5 system-ui,sans-serif}.wrap{max-width:850px;margin:auto;padding:22px 15px 40px}.top{display:flex;align-items:center;gap:12px;margin-bottom:22px}.logo{width:48px;height:48px;border-radius:15px;background:linear-gradient(135deg,var(--purple),var(--green));display:grid;place-items:center;color:#100d20;font-size:25px;font-weight:900}.brand{font-weight:850}.sub,.small,.label{color:var(--muted);font-size:12px}.pill{display:inline-block;border-radius:99px;padding:5px 9px;background:#30274b;color:#d8ccff;font-size:11px;font-weight:800}.hero,.card,.stat{border:1px solid var(--line);border-radius:20px;background:#1b1730ed;padding:19px}.hero{background:linear-gradient(140deg,#282043,#171329)}.eyebrow{color:var(--green);font-size:12px;font-weight:800;letter-spacing:1.4px}.hero h1{font-size:clamp(30px,7vw,44px);line-height:1.08;margin:10px 0}.hero p,.task p{color:var(--muted)}.notice{margin-top:17px;padding:12px;border-radius:13px;background:#3b2e17;border:1px solid #735a2c;color:var(--yellow);font-size:13px}.stats,.two{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}.value{font-size:25px;font-weight:850}.section-title{font-size:20px;margin:24px 0 12px}.tasks{display:grid;gap:12px}.task{display:flex;align-items:flex-start;gap:12px}.task-icon{width:42px;height:42px;flex-shrink:0;border-radius:13px;background:#282043;display:grid;place-items:center;font-size:21px}.task-main{flex:1}.task h3{font-size:16px;margin:0 0 4px}.task p{font-size:13px;margin:0}.task-status{font-size:12px;color:var(--yellow);margin-top:8px}button{border:0;border-radius:11px;padding:10px 12px;font-weight:800;color:#100d20;background:var(--green);cursor:pointer;margin-top:10px}button:disabled{background:#464056;color:#c7c0d8}.formrow{display:flex;gap:8px;margin-top:12px}.formrow input{min-width:0;flex:1;background:#100d20;color:white;border:1px solid var(--line);border-radius:10px;padding:12px}.formrow button{margin:0}.footer{text-align:center;color:var(--muted);font-size:12px;margin-top:24px}.footer a{color:var(--green)}@media(max-width:560px){.stats,.two{grid-template-columns:1fr}.task{flex-wrap:wrap}.task button{margin-left:54px}}
-</style></head><body><div class="wrap">
-<header class="top"><div class="logo">S</div><div><div class="brand">SOL PHANTOM MINER</div><div class="sub">TASK REWARDS · EARLY PROTOTYPE</div></div><span class="pill" style="margin-left:auto">PREVIEW</span></header>
-<main><section class="hero"><div class="eyebrow">YOUR NEXT STEP STARTS HERE</div><h1>Earn through tasks.<br>Track every step.</h1><p>A transparent prototype for a future task-and-rewards app. No hidden mining, no fake payouts, and no promise of earnings.</p><div class="notice"><b>Prototype mode:</b> Solana cannot be mined by this app. Tasks below are examples only; no live offerwall, real rewards, account system, or SOL payouts are connected yet.</div></section>
-<section class="stats"><div class="stat"><div class="label">Available SOL</div><div class="value">0.000000</div><div class="small">Real payouts not enabled</div></div><div class="stat"><div class="label">Task submissions</div><div class="value" id="submittedCount">0</div><div class="small">Saved on this device only</div></div></section>
-<div class="two"><section class="card"><h2 class="section-title" style="margin-top:0">Wallet address (optional)</h2><p class="small">For interface testing only. Enter a public Solana address; never enter a seed phrase or private key.</p><form id="walletForm" class="formrow"><input id="wallet" placeholder="Public Solana address" autocomplete="off"><button type="submit">Save</button></form><div id="walletStatus" class="small" style="margin-top:9px">No address saved.</div></section>
-<section class="card"><h2 class="section-title" style="margin-top:0">How rewards will work</h2><p class="small">1. Complete an approved partner task.<br>2. Partner verifies completion.<br>3. Server approves the reward.<br>4. Payout is sent and recorded.</p><span class="pill">Server verification required</span></section></div>
-<h2 class="section-title">Example tasks</h2><div class="tasks">
-<article class="card task"><div class="task-icon">📘</div><div class="task-main"><h3>Read the safety guide</h3><p>Learn to protect your wallet and spot scams. This is a demo task, not a paid offer.</p><div class="task-status" id="status-safety">Not submitted</div></div><button data-task="safety">Mark as reviewed</button></article>
-<article class="card task"><div class="task-icon">🧩</div><div class="task-main"><h3>Explore the app demo</h3><p>Test the dashboard and give feedback. No SOL or money is awarded for this demo action.</p><div class="task-status" id="status-demo">Not submitted</div></div><button data-task="demo">Submit demo feedback</button></article></div>
-<p class="small" style="margin-top:14px">Demo submissions are stored only in this browser. They have no monetary value and are not redeemable.</p></main>
-<footer class="footer">SOL Phantom Miner · Prototype only · <a href="https://solana.com/docs" target="_blank" rel="noreferrer">Solana developer docs</a></footer></div>
+*{box-sizing:border-box}
+body{margin:0;background:#080d1c;color:#eef2ff;font-family:Arial,sans-serif;padding:22px}
+main{max-width:650px;margin:auto}
+h1{color:#9b8cff;text-align:center}
+p{color:#aeb8d0;line-height:1.5}
+.card{background:#111a30;border:1px solid #293653;border-radius:15px;padding:18px;margin:15px 0}
+input{width:100%;padding:13px;margin:7px 0;background:#080d1c;border:1px solid #394766;border-radius:9px;color:white}
+button{padding:12px 16px;border:0;border-radius:9px;background:#7865ff;color:white;font-weight:bold;margin:5px 4px 5px 0}
+button.secondary{background:#26334e}
+.task{border-bottom:1px solid #293653;padding:12px 0}
+.small{font-size:12px;color:#8996b2}
+#message{color:#a99bff;overflow-wrap:anywhere}
+.hidden{display:none}
+</style>
+</head>
+<body>
+<main>
+<h1>👻 SOL PHANTOM MINER</h1>
+<p style="text-align:center">Play. Complete missions. Earn rewards.</p>
+
+<section class="card" id="auth">
+<h2>Player account</h2>
+<input id="email" type="email" placeholder="Email address">
+<input id="password" type="password" placeholder="Password (minimum 6 characters)">
+<button id="signup">Create account</button>
+<button id="login" class="secondary">Log in</button>
+<p class="small">Create an account or log in to see available tasks.</p>
+</section>
+
+<section class="card hidden" id="dashboard">
+<h2>Welcome, Phantom 👋</h2>
+<p id="playerEmail"></p>
+<h2>Demo points: <span id="points">0</span></h2>
+<p class="small">Demo points have no cash or SOL value.</p>
+<button id="refresh">Refresh tasks</button>
+<button id="logout" class="secondary">Log out</button>
+</section>
+
+<section class="card">
+<h2>Available tasks</h2>
+<div id="tasks"><p>Log in to load tasks.</p></div>
+</section>
+
+<p id="message"></p>
+<p class="small">Prototype version. Roblox playtime and achievements are not independently verified. No real SOL payouts are active.</p>
+</main>
+
 <script>
-(()=>{const key="spm-demo-submissions-v1",wk="spm-public-wallet-v1";let s={};try{s=JSON.parse(localStorage.getItem(key)||"{}")}catch(e){}
-function render(){document.getElementById("submittedCount").textContent=Object.keys(s).length;document.querySelectorAll("[data-task]").forEach(b=>{let id=b.dataset.task;b.disabled=!!s[id];b.textContent=s[id]?"Submitted":id==="safety"?"Mark as reviewed":"Submit demo feedback";document.getElementById("status-"+id).textContent=s[id]?"Demo submission saved on this device · no reward":"Not submitted"})}
-document.querySelectorAll("[data-task]").forEach(b=>b.addEventListener("click",()=>{s[b.dataset.task]=new Date().toISOString();localStorage.setItem(key,JSON.stringify(s));render()}));
-document.getElementById("walletForm").addEventListener("submit",e=>{e.preventDefault();let v=document.getElementById("wallet").value.trim();if(v&&!/^[1-9A-HJ-NP-Za-km-z]{32,44}$/.test(v)){document.getElementById("walletStatus").textContent="That doesn't look like a typical Solana public address. Check it and try again.";return}if(v)localStorage.setItem(wk,v);else localStorage.removeItem(wk);document.getElementById("walletStatus").textContent=v?"Public address saved on this device only.":"No address saved."});
-let saved=localStorage.getItem(wk);if(saved){document.getElementById("wallet").value=saved;document.getElementById("walletStatus").textContent="Public address saved on this device only."}render();if("serviceWorker"in navigator)addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}))})();
-</script></body></html>
+const SUPABASE_URL = "sb_secret_6ZKmGt1lg2BRl83u54gd2g_WaBwA0hs";
+const SUPABASE_KEY = "sb_publishable_-AsRtUCjF-FeSnwUjAP8wQ_cxivznKQ";
+
+const client = window.supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_KEY
+);
+
+const message = document.getElementById("message");
+
+function say(text) {
+  message.textContent = text;
+}
+
+async function loadTasks() {
+  const box = document.getElementById("tasks");
+  box.innerHTML = "<p>Loading tasks...</p>";
+
+  const { data, error } = await client
+    .from("tasks")
+    .select("id,title,description,task_type,points")
+    .eq("active", true)
+    .order("created_at");
+
+  if (error) {
+    box.textContent = "Could not load tasks: " + error.message;
+    return;
+  }
+
+  if (!data || data.length === 0) {
+    box.textContent = "No active tasks yet.";
+    return;
+  }
+
+  box.innerHTML = "";
+
+  data.forEach(task => {
+    const item = document.createElement("div");
+    item.className = "task";
+
+    const title = document.createElement("strong");
+    title.textContent = task.title;
+
+    const description = document.createElement("p");
+    description.textContent = task.description || "";
+
+    const details = document.createElement("p");
+    details.className = "small";
+    details.textContent =
+      task.task_type + " • " + task.points + " demo points";
+
+    item.append(title, description, details);
+    box.appendChild(item);
+  });
+}
+
+async function updateScreen() {
+  const { data } = await client.auth.getSession();
+  const user = data.session?.user;
+
+  document.getElementById("auth").classList.toggle("hidden", !!user);
+  document.getElementById("dashboard").classList.toggle("hidden", !user);
+
+  if (user) {
+    document.getElementById("playerEmail").textContent = user.email;
+    document.getElementById("points").textContent = "0";
+    await loadTasks();
+  } else {
+    document.getElementById("tasks").textContent =
+      "Log in to load tasks.";
+  }
+}
+
+document.getElementById("signup").onclick = async () => {
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value;
+
+  if (!email || password.length < 6) {
+    say("Enter a valid email and a password of at least 6 characters.");
+    return;
+  }
+
+  say("Creating account...");
+
+  const { error } = await client.auth.signUp({ email, password });
+
+  if (error) {
+    say(error.message);
+  } else {
+    say("Account created! Check your email if confirmation is required, then log in.");
+  }
+};
+
+document.getElementById("login").onclick = async () => {
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value;
+
+  say("Logging in...");
+
+  const { error } = await client.auth.signInWithPassword({
+    email, password
+  });
+
+  if (error) {
+    say(error.message);
+  } else {
+    say("Welcome back, Phantom!");
+    await updateScreen();
+  }
+};
+
+document.getElementById("logout").onclick = async () => {
+  const { error } = await client.auth.signOut();
+  say(error ? error.message : "You have logged out.");
+  await updateScreen();
+};
+
+document.getElementById("refresh").onclick = loadTasks;
+
+client.auth.onAuthStateChange(() => {
+  updateScreen();
+});
+
+updateScreen();
+
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("sw.js").catch(() => {});
+}
+</script>
+</body>
+</html>
